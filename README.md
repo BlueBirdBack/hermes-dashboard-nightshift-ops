@@ -1,36 +1,34 @@
 # Hermes Dashboard Theme: Night Shift Ops
 
-A high-contrast **Hermes Agent dashboard theme** for late-night sessions, log triage, and session hunting.
+A quiet, high-density **Hermes Agent dashboard theme** for late-night ops work: logs, sessions, agent load, budget drift, and “needs eyes” triage.
 
-**Night Shift Ops** is tuned for the hackathon brief: *ADHD command center / 2am ops dashboard* — fast scanning, bright signal colors, readable dense surfaces, and just enough glow to feel alive without turning the dashboard into a toy.
+The 2026 redesign moves the theme from neon showcase toward a calmer **Quiet Ops** system: dark layered surfaces, soft violet focus, muted semantic status colors, compact cards, and readable live-log typography.
 
 ## What ships
 
-This repo ships two pieces:
+- `theme/nightshift-ops.yaml` — installable Hermes dashboard theme
+- `dashboard/` — optional plugin that adds a `/nightshift` showcase tab
+- `screenshots/` — preview images of the redesigned theme/plugin
 
-- `theme/nightshift-ops.yaml` — the actual **custom dashboard theme** for the Hermes theme picker
-- `dashboard/` — an optional lightweight plugin that adds a `/nightshift` showcase tab and reinforces the visual treatment across the dashboard
+The theme is the main deliverable. The plugin is a richer preview surface for the design language.
 
-The theme is the main deliverable. The plugin is there to make the entry more demonstrable and easier to preview.
+## Design language
 
-## Design goals
-
-- **High signal density** for logs, sessions, and config marathons
-- **Readable contrast** on dark surfaces
-- **Clear state colors** for live, warning, destructive, and interactive UI
-- **Memorable look** without sacrificing utility
+- **Calm dark surfaces**: charcoal/navy base, slate cards, subtle borders
+- **Soft violet primary**: focused but not neon
+- **Muted ops statuses**: green live, amber warning, rose danger, cyan info
+- **Dense scanning layout**: KPI cards, session detail, agent load bars, live logs, triage queue
+- **Practical typography**: clean UI font with mono numerics/log rows
 
 ## Screenshots
 
-### Status / overview
-![Night Shift Ops status view](screenshots/nightshift-status.png)
+### Quiet Ops plugin dashboard
+![Night Shift Ops redesigned plugin view](screenshots/nightshift-status.png)
 
-### Theme page / palette overview
-![Night Shift Ops plugin page](screenshots/nightshift-plugin-page.png)
+### Theme / palette detail
+![Night Shift Ops palette and panel detail](screenshots/nightshift-plugin-page.png)
 
 ## Install
-
-### Recommended
 
 ```bash
 git clone https://github.com/BlueBirdBack/hermes-dashboard-nightshift-ops.git
@@ -41,7 +39,7 @@ hermes dashboard
 
 Then open the theme picker in the dashboard header and choose **Night Shift Ops**.
 
-### Manual install
+## Manual install
 
 ```bash
 git clone https://github.com/BlueBirdBack/hermes-dashboard-nightshift-ops.git ~/.hermes/plugins/nightshift-ops
@@ -54,7 +52,7 @@ hermes dashboard
 
 1. Open the Hermes dashboard.
 2. Pick **Night Shift Ops** from the theme switcher.
-3. Open the **Night Shift** tab for the built-in preview / quick links.
+3. Open the **Night Shift** tab for the redesigned Quiet Ops preview.
 
 ## Files
 
@@ -74,8 +72,8 @@ nightshift-ops/
 
 ## Notes
 
-- Zero build step for the theme itself — the theme is plain YAML and the plugin is plain JS + CSS.
-- The optional plugin applies a stronger surface treatment so the repo looks great immediately in screenshots.
+- Zero build step: theme is YAML; plugin is prebuilt plain JS + CSS.
+- The plugin applies the same CSS variables as the theme so screenshots look close to real dashboard usage.
 - Remove the theme by deleting `~/.hermes/dashboard-themes/nightshift-ops.yaml` and unlinking `~/.hermes/plugins/nightshift-ops`.
 
 ## License

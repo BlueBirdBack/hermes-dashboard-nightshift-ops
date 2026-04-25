@@ -1,392 +1,547 @@
 html.nightshift-ops {
   color-scheme: dark;
+  --night-bg: #1d1f29;
+  --night-bg-raised: #262a37;
+  --night-card: #2c3041;
+  --night-card-soft: #252837;
+  --night-sunk: #191b24;
+  --night-border: rgba(164, 173, 205, 0.22);
+  --night-border-strong: rgba(196, 181, 253, 0.34);
+  --night-text: #f3f4f9;
+  --night-dim: #b3b9cc;
+  --night-muted: #7c8298;
+  --night-accent: #c4b5fd;
+  --night-accent-2: #a5f3fc;
+  --night-success: #86efac;
+  --night-warning: #fcd34d;
+  --night-danger: #fca5a5;
+  --night-radius: 14px;
+  --night-font: Geist, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --night-mono: "Geist Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 html.nightshift-ops body {
   background:
-    radial-gradient(circle at 15% 20%, rgba(125, 149, 255, 0.16), transparent 24%),
-    radial-gradient(circle at 85% 18%, rgba(134, 231, 255, 0.09), transparent 22%),
-    radial-gradient(circle at 50% 100%, rgba(255, 180, 84, 0.08), transparent 24%),
-    linear-gradient(180deg, #070a16 0%, #090d1d 46%, #050811 100%);
-}
-
-html.nightshift-ops body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(131, 156, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(131, 156, 255, 0.05) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(180deg, rgba(255,255,255,0.32), transparent 72%);
-  opacity: 0.24;
+    radial-gradient(circle at 80% 10%, rgba(196, 181, 253, 0.08), transparent 28%),
+    radial-gradient(circle at 10% 90%, rgba(165, 243, 252, 0.06), transparent 30%),
+    linear-gradient(180deg, #1d1f29 0%, #191b24 100%);
 }
 
 html.nightshift-ops ::selection {
-  background: rgba(134, 231, 255, 0.28);
-  color: #f8fbff;
+  background: rgba(196, 181, 253, 0.28);
+  color: #fff;
 }
 
 html.nightshift-ops header,
 html.nightshift-ops footer {
-  background: rgba(7, 10, 22, 0.86) !important;
-  border-color: rgba(125, 149, 255, 0.24) !important;
-  box-shadow: 0 18px 50px -26px rgba(0, 0, 0, 0.9), inset 0 -1px 0 rgba(134, 231, 255, 0.05);
+  border-color: var(--night-border) !important;
 }
 
-html.nightshift-ops header a,
-html.nightshift-ops header button,
-html.nightshift-ops footer {
-  letter-spacing: 0.04em;
-}
-
-html.nightshift-ops header a[aria-current="page"] {
-  background: linear-gradient(180deg, rgba(134, 231, 255, 0.1), rgba(125, 149, 255, 0.06));
-  box-shadow: inset 0 0 0 1px rgba(134, 231, 255, 0.14);
-}
-
-html.nightshift-ops header a[aria-current="page"] span:last-child {
-  box-shadow: 0 0 18px rgba(134, 231, 255, 0.35);
-}
-
-html.nightshift-ops main {
-  position: relative;
-}
-
-html.nightshift-ops main a {
-  color: #9fe8ff;
+html.nightshift-ops input,
+html.nightshift-ops textarea,
+html.nightshift-ops select,
+html.nightshift-ops [role="combobox"] {
+  background: rgba(25, 27, 36, 0.82) !important;
+  border-color: var(--night-border) !important;
 }
 
 html.nightshift-ops .border.border-border,
-html.nightshift-ops [role="listbox"],
-html.nightshift-ops pre,
-html.nightshift-ops code,
-html.nightshift-ops input,
-html.nightshift-ops textarea,
-html.nightshift-ops select {
-  border-color: rgba(125, 149, 255, 0.24);
-}
-
-html.nightshift-ops .border.border-border {
-  box-shadow:
-    0 18px 45px -28px rgba(0, 0, 0, 0.95),
-    inset 0 1px 0 rgba(255, 255, 255, 0.02),
-    inset 0 0 0 1px rgba(125, 149, 255, 0.04);
-  backdrop-filter: blur(12px);
-}
-
-html.nightshift-ops .border.border-border.bg-card\/80,
-html.nightshift-ops .bg-card\/80,
 html.nightshift-ops [class*="bg-card"] {
-  background: linear-gradient(180deg, rgba(13, 18, 40, 0.88), rgba(8, 12, 28, 0.9));
+  border-color: var(--night-border) !important;
 }
 
-html.nightshift-ops input,
-html.nightshift-ops textarea,
-html.nightshift-ops [role="combobox"],
-html.nightshift-ops [role="option"],
-html.nightshift-ops [role="listbox"],
-html.nightshift-ops button {
-  transition: border-color 120ms ease, background-color 120ms ease, box-shadow 120ms ease, transform 120ms ease;
+html.nightshift-ops [class*="bg-card"] {
+  background: linear-gradient(180deg, rgba(44, 48, 65, 0.92), rgba(37, 40, 55, 0.94)) !important;
 }
 
-html.nightshift-ops input,
-html.nightshift-ops textarea,
-html.nightshift-ops [role="combobox"] {
-  background: rgba(7, 10, 22, 0.72) !important;
+.nightshift-page,
+.nightshift-page * {
+  box-sizing: border-box;
 }
 
-html.nightshift-ops input:focus,
-html.nightshift-ops textarea:focus,
-html.nightshift-ops [role="combobox"]:focus,
-html.nightshift-ops button:focus-visible {
-  box-shadow: 0 0 0 1px rgba(134, 231, 255, 0.28), 0 0 22px rgba(134, 231, 255, 0.08);
+.nightshift-page {
+  min-height: min(900px, calc(100vh - 7rem));
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--night-border);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 75% 18%, rgba(196, 181, 253, 0.08), transparent 34%),
+    radial-gradient(circle at 18% 90%, rgba(165, 243, 252, 0.05), transparent 34%),
+    var(--night-bg);
+  color: var(--night-text);
+  font-family: var(--night-font);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
-html.nightshift-ops table tbody tr:hover,
-html.nightshift-ops [role="option"]:hover,
-html.nightshift-ops button:hover {
-  background-color: rgba(125, 149, 255, 0.08);
-}
-
-html.nightshift-ops pre,
-html.nightshift-ops code {
-  background: rgba(6, 9, 20, 0.8);
-}
-
-html.nightshift-ops .nightshift-page {
+.nightshift-sidebar {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  overflow: hidden;
+  background: rgba(38, 42, 55, 0.94);
+  border-right: 1px solid var(--night-border);
 }
 
-html.nightshift-ops .nightshift-hero-card,
-html.nightshift-ops .nightshift-panel {
-  border-radius: 22px;
+.nightshift-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 22px 18px 20px;
+}
+
+.nightshift-brand__mark,
+.nightshift-account__avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  color: var(--night-bg);
+  background: linear-gradient(135deg, var(--night-accent), var(--night-accent-2));
+  box-shadow: 0 10px 28px rgba(196, 181, 253, 0.28), inset 0 1px 0 rgba(255,255,255,0.28);
+}
+
+.nightshift-brand__mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+}
+
+.nightshift-brand__mark svg { width: 19px; height: 19px; }
+.nightshift-brand__title { font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+.nightshift-brand__subtitle { margin-top: 2px; color: var(--night-muted); font-size: 11px; }
+
+.nightshift-nav {
+  display: grid;
+  gap: 2px;
+  padding: 0 10px;
+}
+
+.nightshift-nav__item,
+.nightshift-session-row,
+.nightshift-button,
+.nightshift-log-filters button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nightshift-nav__item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 38px;
+  padding: 9px 11px;
+  color: var(--night-dim);
+  background: transparent;
+  border-radius: 10px;
+  text-align: left;
+  transition: background 140ms ease, color 140ms ease, box-shadow 140ms ease;
+}
+
+.nightshift-nav__item:hover,
+.nightshift-session-row:hover,
+.nightshift-button:hover,
+.nightshift-log-filters button:hover {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.nightshift-nav__item.is-active {
+  color: var(--night-text);
+  background: linear-gradient(90deg, rgba(196, 181, 253, 0.14), rgba(196, 181, 253, 0.02));
+  box-shadow: inset 2px 0 0 var(--night-accent);
+}
+
+.nightshift-nav__glyph {
+  width: 18px;
+  color: var(--night-accent);
+  font-family: var(--night-mono);
+  font-size: 12px;
+}
+
+.nightshift-nav__badge {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.nightshift-nav__badge.is-live { color: var(--night-success); background: rgba(134, 239, 172, 0.16); }
+.nightshift-nav__badge.is-alert { color: var(--night-danger); background: rgba(252, 165, 165, 0.16); }
+
+.nightshift-sidebar__label {
+  padding: 22px 14px 8px;
+  color: var(--night-muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nightshift-session-list {
+  display: grid;
+  gap: 2px;
+  padding: 0 8px;
+  overflow: auto;
+}
+
+.nightshift-session-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  padding: 8px 11px;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--night-text);
+  text-align: left;
+}
+
+.nightshift-session-row.is-selected {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nightshift-session-row__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+.nightshift-session-row__meta,
+.nightshift-kbd,
+.nightshift-field strong,
+.nightshift-logbox,
+.nightshift-agent__head span {
+  font-family: var(--night-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.nightshift-session-row__meta { color: var(--night-muted); font-size: 10px; }
+
+.nightshift-account {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid var(--night-border);
+}
+
+.nightshift-account__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.nightshift-account__copy {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.nightshift-account__copy strong { font-size: 12px; }
+.nightshift-account__copy span { color: var(--night-muted); font-size: 10px; }
+
+.nightshift-kbd {
+  padding: 2px 7px;
+  border: 1px solid var(--night-border);
+  border-radius: 5px;
+  background: var(--night-sunk);
+  color: var(--night-dim);
+  font-size: 10px;
+}
+
+.nightshift-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
-html.nightshift-ops .nightshift-hero-card {
-  background:
-    radial-gradient(circle at top right, rgba(134, 231, 255, 0.12), transparent 24%),
-    linear-gradient(145deg, rgba(11, 15, 31, 0.96), rgba(7, 10, 22, 0.95));
-}
-
-html.nightshift-ops .nightshift-hero-card__header {
-  gap: 1rem;
-}
-
-html.nightshift-ops .nightshift-kicker-row {
+.nightshift-topbar {
+  height: 60px;
   display: flex;
-  gap: 1rem;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0 24px;
+  border-bottom: 1px solid var(--night-border);
+  background: rgba(29, 31, 41, 0.72);
+  backdrop-filter: blur(12px);
 }
 
-html.nightshift-ops .nightshift-kicker {
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: #8ca5ff;
-}
-
-html.nightshift-ops .nightshift-badge-row {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-html.nightshift-ops .nightshift-outline-badge {
-  border-color: rgba(134, 231, 255, 0.2);
-  color: #c8f5ff;
-  background: rgba(134, 231, 255, 0.06);
-}
-
-html.nightshift-ops .nightshift-hero-title {
-  max-width: 18ch;
-  font-size: clamp(1.5rem, 2.8vw, 2.6rem);
-  line-height: 0.98;
-  letter-spacing: 0.02em;
-}
-
-html.nightshift-ops .nightshift-hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-html.nightshift-ops .nightshift-hero-copy {
-  max-width: 64ch;
-  color: #a6b4dc;
-  line-height: 1.55;
-  text-transform: none;
-}
-
-html.nightshift-ops .nightshift-stat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.85rem;
-}
-
-html.nightshift-ops .nightshift-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  border: 1px solid rgba(125, 149, 255, 0.18);
-  border-radius: 18px;
-  padding: 0.9rem 1rem;
-  background: linear-gradient(180deg, rgba(13, 18, 40, 0.88), rgba(8, 12, 28, 0.9));
-}
-
-html.nightshift-ops .nightshift-stat__label {
-  font-size: 0.66rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #8397cb;
-}
-
-html.nightshift-ops .nightshift-stat__value {
-  font-size: 1.15rem;
-  line-height: 1;
-  color: #f5f8ff;
-}
-
-html.nightshift-ops .nightshift-stat--signal .nightshift-stat__value {
-  color: #8deaff;
-}
-
-html.nightshift-ops .nightshift-stat--focus .nightshift-stat__value {
-  color: #a6b0ff;
-}
-
-html.nightshift-ops .nightshift-stat--success .nightshift-stat__value {
-  color: #6bf2bd;
-}
-
-html.nightshift-ops .nightshift-stat--warning .nightshift-stat__value {
-  color: #ffbf63;
-}
-
-html.nightshift-ops .nightshift-action-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-html.nightshift-ops .nightshift-button {
-  border: 1px solid rgba(125, 149, 255, 0.24);
-  border-radius: 999px;
-  background: rgba(12, 16, 34, 0.84);
-  color: #eaf1ff;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.68rem;
-  padding-inline: 1rem;
-}
-
-html.nightshift-ops .nightshift-button:hover {
-  transform: translateY(-1px);
-  background: rgba(24, 31, 64, 0.88);
-}
-
-html.nightshift-ops .nightshift-button--primary {
-  background: linear-gradient(180deg, rgba(134, 231, 255, 0.16), rgba(125, 149, 255, 0.14));
-  color: #f7fbff;
-  border-color: rgba(134, 231, 255, 0.26);
-}
-
-html.nightshift-ops .nightshift-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
-}
-
-html.nightshift-ops .nightshift-panel__title {
-  font-size: 1rem;
-}
-
-html.nightshift-ops .nightshift-panel-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-html.nightshift-ops .nightshift-workflow-grid {
-  display: grid;
-  gap: 0.85rem;
-}
-
-html.nightshift-ops .nightshift-workflow {
-  border: 1px solid rgba(125, 149, 255, 0.16);
-  border-radius: 18px;
-  padding: 1rem;
-  background: rgba(10, 14, 30, 0.72);
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-html.nightshift-ops .nightshift-workflow__eyebrow,
-html.nightshift-ops .nightshift-note-block__eyebrow {
-  font-size: 0.62rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: #7e93ff;
-}
-
-html.nightshift-ops .nightshift-workflow__title {
-  margin: 0;
-  font-size: 1rem;
-  color: #f2f6ff;
-}
-
-html.nightshift-ops .nightshift-workflow__copy {
-  margin: 0;
-  color: #9eabd1;
-  line-height: 1.5;
-  text-transform: none;
-}
-
-html.nightshift-ops .nightshift-chip-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.75rem;
-}
-
-html.nightshift-ops .nightshift-chip {
+.nightshift-breadcrumb,
+.nightshift-actions,
+.nightshift-session-actions,
+.nightshift-chart-head,
+.nightshift-legend,
+.nightshift-log-filters,
+.nightshift-alert__title {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 0.9rem;
-  border: 1px solid rgba(125, 149, 255, 0.16);
-  border-radius: 16px;
-  background: rgba(10, 14, 30, 0.72);
 }
 
-html.nightshift-ops .nightshift-chip__swatch {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 999px;
-  box-shadow: 0 0 18px rgba(255, 255, 255, 0.08);
-  flex: none;
+.nightshift-breadcrumb { gap: 10px; color: var(--night-muted); font-size: 13px; }
+.nightshift-breadcrumb strong { color: var(--night-text); font-weight: 700; }
+.nightshift-breadcrumb__sep { color: var(--night-border-strong); }
+.nightshift-actions { gap: 8px; }
+
+.nightshift-button {
+  min-height: 32px;
+  padding: 7px 14px;
+  border: 1px solid var(--night-border);
+  border-radius: 9px;
+  background: var(--night-card);
+  color: var(--night-text);
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease, box-shadow 140ms ease;
 }
 
-html.nightshift-ops .nightshift-palette-canvas { background: #070a16; }
-html.nightshift-ops .nightshift-palette-signal { background: #86e7ff; }
-html.nightshift-ops .nightshift-palette-focus { background: #7d95ff; }
-html.nightshift-ops .nightshift-palette-warning { background: #ffb454; }
+.nightshift-button:hover { transform: translateY(-1px); }
+.nightshift-button--primary {
+  color: var(--night-bg);
+  border-color: var(--night-accent);
+  background: linear-gradient(135deg, var(--night-accent), #a78bfa);
+  box-shadow: 0 10px 24px rgba(196, 181, 253, 0.22);
+}
+.nightshift-button--danger { color: var(--night-danger); border-color: rgba(252,165,165,0.42); background: rgba(252,165,165,0.08); }
 
-html.nightshift-ops .nightshift-chip__meta {
+.nightshift-content {
+  flex: 1;
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  min-width: 0;
+  gap: 18px;
+  padding: 22px 24px 24px;
 }
 
-html.nightshift-ops .nightshift-chip__label {
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #9caad2;
+.nightshift-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
 }
 
-html.nightshift-ops .nightshift-chip__value {
-  margin: 0;
-  padding: 0;
-  border: 0;
+.nightshift-metric,
+.nightshift-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--night-border);
+  background: var(--night-card);
+  border-radius: var(--night-radius);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.035) inset, 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.nightshift-metric {
+  min-height: 112px;
+  padding: 18px 18px 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.nightshift-metric::before,
+.nightshift-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 100% 0%, rgba(196,181,253,0.12), transparent 55%);
+  pointer-events: none;
+}
+
+.nightshift-metric.is-success::before { background: radial-gradient(circle at 100% 0%, rgba(134,239,172,0.12), transparent 55%); }
+.nightshift-metric.is-warning::before { background: radial-gradient(circle at 100% 0%, rgba(252,211,77,0.13), transparent 55%); }
+.nightshift-metric.is-danger::before { background: radial-gradient(circle at 100% 0%, rgba(252,165,165,0.13), transparent 55%); }
+
+.nightshift-metric__body,
+.nightshift-metric__chart,
+.nightshift-panel__header,
+.nightshift-panel__body {
+  position: relative;
+  z-index: 1;
+}
+
+.nightshift-metric__body { display: grid; gap: 6px; }
+.nightshift-label { color: var(--night-dim); font-size: 12px; }
+.nightshift-metric__value { font-size: 29px; line-height: 1; letter-spacing: -0.035em; }
+.nightshift-metric__delta { color: var(--night-accent); font-size: 12px; font-weight: 700; }
+.nightshift-metric.is-success .nightshift-metric__delta { color: var(--night-success); }
+.nightshift-metric.is-warning .nightshift-metric__delta { color: var(--night-warning); }
+.nightshift-metric.is-danger .nightshift-metric__delta { color: var(--night-danger); }
+.nightshift-metric__chart { align-self: center; width: 74px; height: 42px; color: var(--night-accent); opacity: 0.95; }
+.nightshift-spark { width: 100%; height: 100%; display: block; }
+
+.nightshift-bars {
+  height: 42px;
+  display: flex;
+  align-items: end;
+  gap: 3px;
+}
+.nightshift-bars span { width: 5px; border-radius: 2px 2px 0 0; opacity: 0.95; }
+
+.nightshift-grid { display: grid; gap: 14px; }
+.nightshift-grid--two { grid-template-columns: minmax(0, 1.35fr) minmax(340px, 0.9fr); }
+.nightshift-grid--three { grid-template-columns: minmax(220px, 0.8fr) minmax(360px, 1.45fr) minmax(260px, 0.9fr); }
+
+.nightshift-panel__header {
+  min-height: 66px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--night-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.nightshift-panel__header h3 { margin: 0; color: var(--night-text); font-size: 14px; font-weight: 800; letter-spacing: -0.01em; }
+.nightshift-panel__header p { margin: 3px 0 0; color: var(--night-muted); font-size: 12px; }
+.nightshift-panel__body { padding: 18px; }
+
+.nightshift-chart-head { gap: 12px; margin-bottom: 14px; }
+.nightshift-chart-head strong { font-size: 32px; letter-spacing: -0.04em; }
+.nightshift-chart-head span:last-child { color: var(--night-muted); font-size: 12px; }
+.nightshift-delta { padding: 3px 9px; border-radius: 999px; font: 700 12px/1.35 var(--night-mono); }
+.nightshift-delta.is-positive { color: var(--night-success); background: rgba(134,239,172,0.14); }
+.nightshift-big-chart { height: 190px; border-radius: 10px; background: linear-gradient(180deg, rgba(25,27,36,0.66), rgba(25,27,36,0.28)); }
+.nightshift-big-chart svg { width: 100%; height: 100%; display: block; }
+.nightshift-legend { gap: 16px; margin-top: 10px; color: var(--night-dim); font-size: 11px; }
+.nightshift-legend i { display: inline-block; width: 9px; height: 9px; margin-right: 7px; border-radius: 3px; background: var(--night-border-strong); vertical-align: middle; }
+.nightshift-legend i.is-accent { background: var(--night-accent); }
+.nightshift-legend__range { margin-left: auto; color: var(--night-muted); }
+
+.nightshift-field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; }
+.nightshift-field span { display: block; color: var(--night-muted); font-size: 11px; }
+.nightshift-field strong { display: block; margin-top: 4px; color: var(--night-text); font-size: 13px; font-weight: 700; }
+.nightshift-field.is-success strong { color: var(--night-success); }
+.nightshift-field.is-accent strong { color: var(--night-accent); }
+.nightshift-session-actions { gap: 8px; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--night-border); }
+.nightshift-session-actions .nightshift-button--danger { margin-left: auto; }
+
+.nightshift-agent-list { display: grid; gap: 13px; }
+.nightshift-agent__head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 7px; }
+.nightshift-agent__head strong { font-size: 13px; }
+.nightshift-agent__head span { color: var(--night-dim); font-size: 11px; }
+.nightshift-progress { height: 6px; overflow: hidden; border-radius: 999px; background: rgba(179,185,204,0.16); }
+.nightshift-progress span { display: block; height: 100%; border-radius: inherit; background: var(--night-success); box-shadow: 0 0 10px rgba(134,239,172,0.34); }
+.nightshift-progress.is-warning span { background: var(--night-warning); box-shadow: 0 0 10px rgba(252,211,77,0.28); }
+.nightshift-progress.is-danger span { background: var(--night-danger); box-shadow: 0 0 10px rgba(252,165,165,0.34); }
+
+.nightshift-panel--logs .nightshift-panel__header { align-items: start; }
+.nightshift-log-filters { gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
+.nightshift-log-filters button {
+  padding: 5px 8px;
+  border: 1px solid var(--night-border);
+  border-radius: 7px;
   background: transparent;
-  color: #f3f8ff;
+  color: var(--night-dim);
+  font: 700 10px/1 var(--night-mono);
+  letter-spacing: 0.08em;
 }
-
-html.nightshift-ops .nightshift-separator {
-  background: linear-gradient(90deg, rgba(125, 149, 255, 0), rgba(125, 149, 255, 0.42), rgba(125, 149, 255, 0));
+.nightshift-log-filters button.is-active { color: var(--night-bg); background: var(--night-success); border-color: var(--night-success); }
+.nightshift-logbox {
+  height: 260px;
+  overflow: auto;
+  padding: 12px;
+  border: 1px solid var(--night-border);
+  border-radius: 10px;
+  background: var(--night-sunk);
 }
-
-html.nightshift-ops .nightshift-codeblock {
-  margin: 0;
-  white-space: pre-wrap;
-  border-radius: 16px;
-  border: 1px solid rgba(125, 149, 255, 0.18);
-  padding: 1rem;
-  line-height: 1.5;
-  color: #dfe9ff;
-}
-
-html.nightshift-ops .nightshift-list {
-  margin: 0;
-  padding-left: 1.1rem;
+.nightshift-logrow {
   display: grid;
-  gap: 0.55rem;
-  color: #a4b2d8;
+  grid-template-columns: 92px 58px 116px 70px minmax(220px, 1fr);
+  gap: 9px;
+  align-items: baseline;
+  padding: 3px 0;
+  color: var(--night-text);
+  font-size: 11px;
   line-height: 1.45;
-  text-transform: none;
+}
+.nightshift-logrow span:first-child,
+.nightshift-logrow span:nth-child(4) { color: var(--night-muted); }
+.nightshift-logrow span:nth-child(2) { color: var(--night-dim); font-weight: 800; }
+.nightshift-logrow span:nth-child(3) { color: var(--night-accent-2); }
+.nightshift-logrow.is-warn span:nth-child(2) { color: var(--night-warning); }
+.nightshift-logrow.is-error span:nth-child(2) { color: var(--night-danger); }
+.nightshift-logrow.is-tool span:nth-child(2) { color: var(--night-accent); }
+.nightshift-logrow.is-trace span:nth-child(2) { color: var(--night-accent-2); }
+
+.nightshift-alert-list { display: grid; gap: 10px; }
+.nightshift-alert {
+  padding: 12px;
+  border: 1px solid var(--night-border);
+  border-left-width: 3px;
+  border-radius: 11px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.025), rgba(25,27,36,0.72));
+}
+.nightshift-alert.is-danger { border-left-color: var(--night-danger); }
+.nightshift-alert.is-warning { border-left-color: var(--night-warning); }
+.nightshift-alert.is-info { border-left-color: var(--night-accent-2); }
+.nightshift-alert__title { gap: 8px; }
+.nightshift-alert__title strong { font-size: 12px; }
+.nightshift-alert__meta { margin-top: 5px; color: var(--night-muted); font: 11px var(--night-mono); }
+.nightshift-alert p { margin: 8px 0 0; color: var(--night-dim); font-size: 12px; line-height: 1.45; }
+
+.nightshift-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: var(--night-dim);
+  background: rgba(255,255,255,0.04);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: capitalize;
+}
+.nightshift-pill.is-live,
+.nightshift-pill.is-success { color: var(--night-success); background: rgba(134,239,172,0.14); }
+.nightshift-pill.is-waiting { color: var(--night-warning); background: rgba(252,211,77,0.13); }
+.nightshift-pill.is-error,
+.nightshift-pill.is-danger { color: var(--night-danger); background: rgba(252,165,165,0.13); }
+.nightshift-pill.is-idle { color: var(--night-muted); }
+
+.nightshift-dot {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  border-radius: 999px;
+  background: var(--night-muted);
+}
+.nightshift-dot.is-live,
+.nightshift-dot.is-success { background: var(--night-success); box-shadow: 0 0 0 3px rgba(134,239,172,0.18); }
+.nightshift-dot.is-waiting,
+.nightshift-dot.is-warning { background: var(--night-warning); box-shadow: 0 0 0 3px rgba(252,211,77,0.16); }
+.nightshift-dot.is-error,
+.nightshift-dot.is-danger { background: var(--night-danger); box-shadow: 0 0 0 3px rgba(252,165,165,0.16); }
+.nightshift-dot.is-info { background: var(--night-accent-2); box-shadow: 0 0 0 3px rgba(165,243,252,0.14); }
+
+.nightshift-page ::-webkit-scrollbar { width: 8px; height: 8px; }
+.nightshift-page ::-webkit-scrollbar-track { background: transparent; }
+.nightshift-page ::-webkit-scrollbar-thumb { background: rgba(179,185,204,0.18); border-radius: 999px; }
+.nightshift-page ::-webkit-scrollbar-thumb:hover { background: rgba(196,181,253,0.32); }
+
+@media (max-width: 1180px) {
+  .nightshift-page { grid-template-columns: 1fr; }
+  .nightshift-sidebar { display: none; }
+  .nightshift-grid--two,
+  .nightshift-grid--three,
+  .nightshift-metrics { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 980px) {
-  html.nightshift-ops .nightshift-grid,
-  html.nightshift-ops .nightshift-chip-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 760px) {
+  .nightshift-page { border-radius: 16px; }
+  .nightshift-topbar { height: auto; padding: 14px; align-items: stretch; flex-direction: column; }
+  .nightshift-content { padding: 14px; }
+  .nightshift-grid--two,
+  .nightshift-grid--three,
+  .nightshift-metrics { grid-template-columns: 1fr; }
+  .nightshift-logrow { grid-template-columns: 78px 52px 1fr; }
+  .nightshift-logrow span:nth-child(4) { display: none; }
+  .nightshift-logrow span:nth-child(5) { grid-column: 1 / -1; color: var(--night-dim); }
 }

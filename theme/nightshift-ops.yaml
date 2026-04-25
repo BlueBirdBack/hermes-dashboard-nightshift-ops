@@ -1,32 +1,32 @@
 name: nightshift-ops
 label: Night Shift Ops
-description: ADHD command center / 2am ops dashboard — high contrast, readable, practical.
+description: Quiet dark ops dashboard — compact observability, soft violet focus, muted status colors.
 
 colors:
-  background: "#070a16"
-  foreground: "#edf3ff"
-  card: "#0d1228"
-  card-foreground: "#edf3ff"
-  primary: "#86e7ff"
-  primary-foreground: "#070a16"
-  secondary: "#101935"
-  secondary-foreground: "#d9e3ff"
-  muted: "#111a33"
-  muted-foreground: "#97a5cf"
-  accent: "#162342"
-  accent-foreground: "#edf3ff"
-  destructive: "#ff6b88"
-  destructive-foreground: "#fff5f8"
-  success: "#5ef0b2"
-  warning: "#ffb454"
-  border: "rgba(125, 149, 255, 0.24)"
-  input: "rgba(125, 149, 255, 0.22)"
-  ring: "#86e7ff"
-  popover: "rgba(9, 12, 28, 0.96)"
-  popover-foreground: "#edf3ff"
+  background: "#1d1f29"
+  foreground: "#f3f4f9"
+  card: "#2c3041"
+  card-foreground: "#f3f4f9"
+  primary: "#c4b5fd"
+  primary-foreground: "#1d1f29"
+  secondary: "#262a37"
+  secondary-foreground: "#d6d9e5"
+  muted: "#262a37"
+  muted-foreground: "#b3b9cc"
+  accent: "#34304a"
+  accent-foreground: "#f3f4f9"
+  destructive: "#fca5a5"
+  destructive-foreground: "#2b1114"
+  success: "#86efac"
+  warning: "#fcd34d"
+  border: "rgba(164, 173, 205, 0.22)"
+  input: "rgba(164, 173, 205, 0.20)"
+  ring: "#c4b5fd"
+  popover: "rgba(31, 34, 45, 0.97)"
+  popover-foreground: "#f3f4f9"
 
 overlay:
-  noiseOpacity: 0.08
+  noiseOpacity: 0.045
   noiseBlendMode: screen
-  warmGlowOpacity: 0.18
-  warmGlowColor: "rgba(255, 179, 71, 0.18)"
+  warmGlowOpacity: 0.16
+  warmGlowColor: "rgba(196, 181, 253, 0.16)"

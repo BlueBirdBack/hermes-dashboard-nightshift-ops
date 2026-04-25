@@ -1,9 +1,9 @@
 {
   "name": "nightshift-ops",
   "label": "Night Shift",
-  "description": "High-contrast 2am ops dashboard theme for Hermes Agent",
-  "icon": "Zap",
-  "version": "1.0.0",
+  "description": "Quiet dark ops dashboard theme for Hermes Agent",
+  "icon": "MoonStar",
+  "version": "1.1.0",
   "tab": {
     "path": "/nightshift",
     "position": "after:logs"
