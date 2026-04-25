@@ -1,0 +1,32 @@
+name: nightshift-ops
+label: Night Shift Ops
+description: ADHD command center / 2am ops dashboard — high contrast, readable, practical.
+
+colors:
+  background: "#070a16"
+  foreground: "#edf3ff"
+  card: "#0d1228"
+  card-foreground: "#edf3ff"
+  primary: "#86e7ff"
+  primary-foreground: "#070a16"
+  secondary: "#101935"
+  secondary-foreground: "#d9e3ff"
+  muted: "#111a33"
+  muted-foreground: "#97a5cf"
+  accent: "#162342"
+  accent-foreground: "#edf3ff"
+  destructive: "#ff6b88"
+  destructive-foreground: "#fff5f8"
+  success: "#5ef0b2"
+  warning: "#ffb454"
+  border: "rgba(125, 149, 255, 0.24)"
+  input: "rgba(125, 149, 255, 0.22)"
+  ring: "#86e7ff"
+  popover: "rgba(9, 12, 28, 0.96)"
+  popover-foreground: "#edf3ff"
+
+overlay:
+  noiseOpacity: 0.08
+  noiseBlendMode: screen
+  warmGlowOpacity: 0.18
+  warmGlowColor: "rgba(255, 179, 71, 0.18)"
