@@ -2,31 +2,94 @@ name: nightshift-ops
 label: Night Shift Ops
 description: Quiet dark ops dashboard — compact observability, soft violet focus, muted status colors.
 
-colors:
-  background: "#1d1f29"
-  foreground: "#f3f4f9"
+palette:
+  background:
+    hex: "#1d1f29"
+    alpha: 1
+  midground:
+    hex: "#f3f4f9"
+    alpha: 1
+  foreground:
+    hex: "#c4b5fd"
+    alpha: 0.18
+  warmGlow: "rgba(196, 181, 253, 0.16)"
+  noiseOpacity: 0.48
+
+typography:
+  fontSans: "Inter, Geist, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+  fontMono: "'JetBrains Mono', 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+  baseSize: "14px"
+  lineHeight: "1.55"
+  letterSpacing: "-0.005em"
+
+layout:
+  radius: "0.875rem"
+  density: compact
+
+layoutVariant: tiled
+
+colorOverrides:
   card: "#2c3041"
-  card-foreground: "#f3f4f9"
+  cardForeground: "#f3f4f9"
+  popover: "rgba(31, 34, 45, 0.97)"
+  popoverForeground: "#f3f4f9"
   primary: "#c4b5fd"
-  primary-foreground: "#1d1f29"
+  primaryForeground: "#1d1f29"
   secondary: "#262a37"
-  secondary-foreground: "#d6d9e5"
+  secondaryForeground: "#d6d9e5"
   muted: "#262a37"
-  muted-foreground: "#b3b9cc"
+  mutedForeground: "#b3b9cc"
   accent: "#34304a"
-  accent-foreground: "#f3f4f9"
+  accentForeground: "#f3f4f9"
   destructive: "#fca5a5"
-  destructive-foreground: "#2b1114"
+  destructiveForeground: "#2b1114"
   success: "#86efac"
   warning: "#fcd34d"
   border: "rgba(164, 173, 205, 0.22)"
   input: "rgba(164, 173, 205, 0.20)"
   ring: "#c4b5fd"
-  popover: "rgba(31, 34, 45, 0.97)"
-  popover-foreground: "#f3f4f9"
 
-overlay:
-  noiseOpacity: 0.045
-  noiseBlendMode: screen
-  warmGlowOpacity: 0.16
-  warmGlowColor: "rgba(196, 181, 253, 0.16)"
+componentStyles:
+  card:
+    background: "linear-gradient(180deg, rgba(44,48,65,0.94), rgba(37,40,55,0.96))"
+    boxShadow: "0 1px 0 rgba(255,255,255,0.035) inset, 0 8px 24px rgba(0,0,0,0.18)"
+  header:
+    background: "rgba(29,31,41,0.78)"
+    backdropFilter: "blur(12px)"
+  page:
+    background: "radial-gradient(circle at 80% 10%, rgba(196,181,253,0.08), transparent 28%), radial-gradient(circle at 10% 90%, rgba(165,243,252,0.06), transparent 30%), linear-gradient(180deg, #1d1f29 0%, #191b24 100%)"
+
+customCSS: |
+  body {
+    background:
+      radial-gradient(circle at 80% 10%, rgba(196, 181, 253, 0.08), transparent 28%),
+      radial-gradient(circle at 10% 90%, rgba(165, 243, 252, 0.06), transparent 30%),
+      linear-gradient(180deg, #1d1f29 0%, #191b24 100%);
+  }
+
+  ::selection {
+    background: rgba(196, 181, 253, 0.28);
+    color: #fff;
+  }
+
+  header,
+  footer {
+    border-color: rgba(164, 173, 205, 0.22) !important;
+  }
+
+  input,
+  textarea,
+  select,
+  [role="combobox"] {
+    background: rgba(25, 27, 36, 0.82) !important;
+    border-color: rgba(164, 173, 205, 0.22) !important;
+  }
+
+  .border.border-border,
+  [class*="bg-card"] {
+    border-color: rgba(164, 173, 205, 0.22) !important;
+  }
+
+  [class*="bg-card"] {
+    background: linear-gradient(180deg, rgba(44, 48, 65, 0.92), rgba(37, 40, 55, 0.94)) !important;
+  }
