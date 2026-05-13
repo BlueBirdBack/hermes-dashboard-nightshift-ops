@@ -1,32 +1,16 @@
-# Night Shift Ops for Hermes Dashboard
+# Hermes Dashboard 主题
 
-A quiet dark theme for the **Hermes Agent dashboard**, plus an optional **Night Shift** dashboard tab for ops-style monitoring.
+[English](README.en.md)
 
-It is designed for late-night agent work: sessions, logs, model routing, token usage, cost, and “needs eyes” triage.
+这是给 **Hermes Agent Web Dashboard** 用的主题包。
 
-## What this repo includes
+包含：
 
-- `theme/nightshift-ops.yaml` — the actual Hermes dashboard theme.
-- `dashboard/` — an optional plugin that adds a **Night Shift** tab.
-- `screenshots/` — real dashboard and showcase screenshots.
+- `AskClaw ADHD`：浅色、低干扰、蓝色强调色。配色来自 AskClaw 在 `7843bbd` 之前的聊天界面。
+- `Night Shift Ops`：深色运维风格，适合夜间看日志、会话、模型、成本和告警。
+- `Night Shift` 插件页：可选的 dashboard tab，无需构建。
 
-The theme changes the normal Hermes dashboard colors. The plugin adds the richer Night Shift demo/ops page.
-
-## Real dashboard screenshot
-
-This is a real Hermes dashboard capture at **1440px wide**. It includes the normal Hermes Agent shell/sidebar because that is what you see when running the dashboard.
-
-![Real Hermes dashboard with Night Shift Ops](screenshots/nightshift-real-dashboard-1440.png)
-
-## Showcase screenshots
-
-These older screenshots focus on the Night Shift plugin UI by itself. They are useful for seeing the design language, but the real dashboard view above is more accurate for what you will see after installation.
-
-![Night Shift Ops plugin showcase](screenshots/nightshift-status.png)
-
-![Night Shift Ops panel detail](screenshots/nightshift-plugin-page.png)
-
-## Install
+## 安装
 
 ```bash
 git clone https://github.com/BlueBirdBack/hermes-dashboard-nightshift-ops.git
@@ -34,104 +18,67 @@ cd hermes-dashboard-nightshift-ops
 ./install.sh
 ```
 
-The installer does two things:
+安装脚本会：
 
-1. Links this repo as a Hermes plugin at `~/.hermes/plugins/nightshift-ops`.
-2. Copies the theme file to `~/.hermes/dashboard-themes/nightshift-ops.yaml`.
+- 把插件链接到 `~/.hermes/plugins/nightshift-ops`
+- 把所有主题复制到 `~/.hermes/dashboard-themes/`
 
-## Use it locally
-
-Start the dashboard:
+## 使用 AskClaw ADHD
 
 ```bash
+hermes config set dashboard.theme askclaw-adhd
 hermes dashboard
 ```
 
-Then:
+打开 Hermes 打印出来的 dashboard 地址。
 
-1. Open the dashboard URL printed by Hermes.
-2. Open **Switch theme**.
-3. Choose **Night Shift Ops**.
-4. Click **Night Shift** in the left sidebar to open the plugin page.
+也可以在 dashboard 右下角主题切换器里选择 **AskClaw ADHD**。
 
-You can also set the theme from the terminal:
+## 使用 Night Shift Ops
 
 ```bash
 hermes config set dashboard.theme nightshift-ops
 hermes dashboard
 ```
 
-## Use it on a VPS
+侧边栏里的 **Night Shift** 是插件页。
 
-On the VPS:
+## VPS 用法
+
+服务器上运行：
 
 ```bash
-cd hermes-dashboard-nightshift-ops
-./install.sh
-hermes config set dashboard.theme nightshift-ops
 hermes dashboard --host 127.0.0.1 --port 9123 --no-open
 ```
 
-On your laptop, open an SSH tunnel:
+本地开 SSH 隧道：
 
 ```bash
 ssh -L 9123:127.0.0.1:9123 root@YOUR_SERVER_IP
 ```
 
-Then visit:
+然后打开：
 
 ```text
-http://127.0.0.1:9123/nightshift
+http://127.0.0.1:9123
 ```
 
-## Update later
+## 卸载
 
 ```bash
-cd hermes-dashboard-nightshift-ops
-git pull
-./install.sh
-```
-
-Restart the dashboard if it was already running.
-
-## Remove
-
-```bash
+rm -f ~/.hermes/dashboard-themes/askclaw-adhd.yaml
 rm -f ~/.hermes/dashboard-themes/nightshift-ops.yaml
 rm -f ~/.hermes/plugins/nightshift-ops
-```
-
-If you set this as your active theme, choose another theme in the dashboard or return to the built-in default:
-
-```bash
 hermes config set dashboard.theme default
 ```
 
-## Design notes
-
-- Dark charcoal/navy surfaces.
-- Soft violet primary accent.
-- Muted green/yellow/red/cyan status colors.
-- Dense cards for sessions, logs, routing, cost, and triage.
-- Plain prebuilt JavaScript/CSS; no build step is required.
-
-## Files
+## 文件
 
 ```text
-nightshift-ops/
-├── plugin.yaml
-├── install.sh
-├── theme/
-│   └── nightshift-ops.yaml
-├── dashboard/
-│   ├── manifest.json
-│   └── dist/
-│       ├── index.js
-│       └── style.css
-└── screenshots/
-    ├── nightshift-real-dashboard-1440.png
-    ├── nightshift-status.png
-    └── nightshift-plugin-page.png
+theme/askclaw-adhd.yaml      # AskClaw 风格主题
+theme/nightshift-ops.yaml    # 夜间运维主题
+dashboard/                   # Night Shift 插件
+install.sh                   # 安装脚本
 ```
 
 ## License
